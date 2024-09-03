@@ -1,5 +1,8 @@
 package produtoressingle.name;
 
+import java.time.Duration;
+import java.time.Instant;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -23,9 +26,13 @@ public class Main extends ApplicationAdapter {
     public float posXCaixa=450, posYCaixa=60;
     private byte ComportamentoProdutor=0;
     private byte ComportamentoConsumidor=3;
+    private Instant Inicial = Instant.now();
+    Instant Final; 
+    Duration Delta;
     @Override
     public void create() {
         batch = new SpriteBatch();
+  
        kitty = new Texture("kitty.png");
        Loona = new Texture("loona.png");
        Caixa = new Texture("caixa.png");
@@ -110,6 +117,8 @@ public class Main extends ApplicationAdapter {
 	   			System.out.println("Consumidor Consumiu");
 	   			RemoveCaixa();
 	   			ComportamentoProdutor =0;
+	   			 Final = Instant.now();
+	   			CalculaTempo();
 	   		}
 	   		
 		  break;
@@ -131,5 +140,12 @@ public class Main extends ApplicationAdapter {
    public void RemoveCaixa()
    {
 	   CaixaSprite.setAlpha(0.0f);
+   }
+   
+   public void CalculaTempo()
+   {
+	   Delta = Duration.between(Inicial, Final);
+	   Delta.toMillis();
+	   System.out.println("Tempo: "+Delta );
    }
 }
