@@ -4,31 +4,75 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Main extends ApplicationAdapter {
     private SpriteBatch batch;
-    private Texture image;
-
+    private Texture kitty;
+    private Texture Loona;
+    private Texture Caixa;
+    private Sprite KittySprite;
+    private Sprite LoonaSprite;
+    private Sprite CaixaSprite;
+    public float posXKitty =500f, posYKitty = 60;
+    public float posXLoona= 0, posYLoona= 80;
+    public float posXCaixa=450, posYCaixa=60;
     @Override
     public void create() {
         batch = new SpriteBatch();
-        image = new Texture("libgdx.png");
+       kitty = new Texture("kitty.png");
+       Loona = new Texture("loona.png");
+       Caixa = new Texture("caixa.png");
+       
+       KittySprite = new Sprite(kitty);
+       LoonaSprite = new Sprite(Loona);
+       CaixaSprite = new Sprite(Caixa);
+       
+       KittySprite.setSize(50, 50);
+       LoonaSprite.setSize(80, 80);
+       CaixaSprite.setSize(50, 50);
+       
+       KittySprite.setPosition(500, 60);
+       LoonaSprite.setPosition(0,80);
+       CaixaSprite.setPosition(450, 60);
+       
+       
     }
 
     @Override
     public void render() {
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         batch.begin();
-        batch.draw(image, 140, 210);
+      //  batch.draw(, 140, 210);
+        KittySprite.draw(batch);
+        LoonaSprite.draw(batch);
+        CaixaSprite.draw(batch);
         batch.end();
     }
 
     @Override
     public void dispose() {
         batch.dispose();
-        image.dispose();
+      //  image.dispose();
     }
+    
+   public void MoveProdutor()
+   {
+	   
+   }
+   public void MoveConsumidor()
+   {
+	   
+   }
+   public void ColocaCaixa()
+   {
+	   
+   }
+   public void RemoveCaixa()
+   {
+	   
+   }
 }
