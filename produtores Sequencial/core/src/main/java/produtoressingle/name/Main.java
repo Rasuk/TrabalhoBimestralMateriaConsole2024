@@ -17,6 +17,7 @@ public class Main extends ApplicationAdapter {
     private Sprite KittySprite;
     private Sprite LoonaSprite;
     private Sprite CaixaSprite;
+    private Texture BackGround;
     public float posXKitty =500f, posYKitty = 60;
     public float posXLoona= 0, posYLoona= 80;
     public float posXCaixa=450, posYCaixa=60;
@@ -28,10 +29,12 @@ public class Main extends ApplicationAdapter {
        kitty = new Texture("kitty.png");
        Loona = new Texture("loona.png");
        Caixa = new Texture("caixa.png");
+       BackGround = new Texture("bg.png");
        
        KittySprite = new Sprite(kitty);
        LoonaSprite = new Sprite(Loona);
        CaixaSprite = new Sprite(Caixa);
+      
        
        KittySprite.setSize(50, 50);
        LoonaSprite.setSize(80, 80);
@@ -51,6 +54,7 @@ public class Main extends ApplicationAdapter {
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         batch.begin();
       //  batch.draw(, 140, 210);
+        batch.draw(BackGround,0,0,1280,1280);
         KittySprite.draw(batch);
         LoonaSprite.draw(batch);
         CaixaSprite.draw(batch);
@@ -73,6 +77,7 @@ public class Main extends ApplicationAdapter {
 	   		if(posXKitty>=600)
 	   		{
 	   			ComportamentoProdutor =1;
+	   			System.out.println("Produtor Produziu");
 	   		}
 	   		
 		    break;
@@ -83,6 +88,7 @@ public class Main extends ApplicationAdapter {
 	   			if(posXKitty<=500f)
 	   		{
 	   			ColocaCaixa();
+	   			System.out.println("Produtor Depositou");
 	   			ComportamentoConsumidor = 0;
 	   			ComportamentoProdutor = 3;
 	   		}
@@ -101,6 +107,7 @@ public class Main extends ApplicationAdapter {
 	   		if(posXLoona>=430)
 	   		{
 	   			ComportamentoConsumidor=1;
+	   			System.out.println("Consumidor Consumiu");
 	   			RemoveCaixa();
 	   			ComportamentoProdutor =0;
 	   		}
