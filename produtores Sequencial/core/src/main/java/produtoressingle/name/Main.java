@@ -36,7 +36,7 @@ public class Main extends ApplicationAdapter {
        KittySprite.setSize(50, 50);
        LoonaSprite.setSize(80, 80);
        CaixaSprite.setSize(50, 50);
-       
+       CaixaSprite.setAlpha(0);
        KittySprite.setPosition(posXKitty, posYKitty);
        LoonaSprite.setPosition(0,80);
        CaixaSprite.setPosition(450, 60);
@@ -101,6 +101,8 @@ public class Main extends ApplicationAdapter {
 	   		if(posXLoona>=430)
 	   		{
 	   			ComportamentoConsumidor=1;
+	   			RemoveCaixa();
+	   			ComportamentoProdutor =0;
 	   		}
 	   		
 		  break;
@@ -117,7 +119,7 @@ public class Main extends ApplicationAdapter {
    }
    public void ColocaCaixa()
    {
-	   CaixaSprite.setAlpha(100f);
+	   CaixaSprite.setAlpha(10.0f);
    }
    public void RemoveCaixa()
    {
