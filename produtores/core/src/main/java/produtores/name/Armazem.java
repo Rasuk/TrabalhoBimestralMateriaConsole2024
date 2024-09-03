@@ -1,5 +1,6 @@
 package produtores.name;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Semaphore;
@@ -109,9 +110,11 @@ public Consumidor[] consumidor = new Consumidor[3];
 						e.printStackTrace();
 					}
 					semaphore.release();
+				
 					
 				}
-			}
+			}	Main.Final = Instant.now();
+				Main.CalculaTempo();
 	
 	}
 		

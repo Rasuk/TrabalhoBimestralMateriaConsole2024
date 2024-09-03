@@ -1,5 +1,7 @@
 package produtores.name;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Random;
 
 import com.badlogic.gdx.graphics.Texture;
@@ -17,6 +19,7 @@ public Random randomSpeed;
 public Sprite sprite;
 public float posX,posY;
 public float speed;
+
 Caixa caixa;
 	public Consumidor(int IDRecebido, Armazem armazemRecebido, Caixa caixarcb)
 	{
@@ -29,6 +32,7 @@ Caixa caixa;
 		posY=0;
 		speed = randomSpeed.nextFloat(2.0f);
 		caixa = caixarcb;
+		
 	}
 	
 	public void run()

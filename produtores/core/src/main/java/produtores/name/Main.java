@@ -1,5 +1,8 @@
 package produtores.name;
 
+import java.time.Duration;
+import java.time.Instant;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -18,7 +21,9 @@ public class Main extends ApplicationAdapter {
     float posx, posy;
     Armazem armazem = new Armazem(this.Consumidores);  
     public Caixa caixa;
-
+    public static Instant Inicial = Instant.now();
+    public static Instant Final;
+    public static Duration Delta;
     boolean v = true;
     @Override
     public void create() {
@@ -82,6 +87,11 @@ public class Main extends ApplicationAdapter {
         batch.dispose();
         image.dispose();
     }
-    
+    public static void CalculaTempo()
+    {
+    	Delta = Duration.between(Inicial, Final);
+    	Delta.toMillis();
+    	System.out.println("TempoDecorrido: "+Delta);
+    }
    
 }
